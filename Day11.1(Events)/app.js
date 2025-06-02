@@ -1,15 +1,16 @@
-var events=require('events');
-const {emit}=require('process');
-var eventEmitter=new events.eventEmitter();
-var buttonClicked=function(){
-    console.log("ButtonClicked");
+var events = require("events");
+const { emit } = require("process");
 
-}
-var welcome =function(msg){
-    console.log("Welcome to TIT:"+msg);
-}
+var eventEmitter = new events.EventEmitter();
 
-eventEmitter.on('WhatAction',buttonClicked);
-eventEmitter.emit('What Action');
-eventEmitter.on('WhatNext',welcome);
-eventEmitter.emit('WhatNext');
+var buttonClicked = function () {
+  console.log("ButtonClicked");
+};
+var welcomeMessage = function (msg) {
+  console.log("Welcome to TIT: " + msg);
+};
+let msg="SrinivasaRao.K"
+eventEmitter.on("buttonClicked", buttonClicked);
+eventEmitter.emit("buttonClicked");
+eventEmitter.on("showMessage", welcomeMessage);
+eventEmitter.emit("showMessage", msg);
